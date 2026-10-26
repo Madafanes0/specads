@@ -1,0 +1,219 @@
+{
+  "template": "AppFlow",
+  "brand": "airbnb",
+  "brandColor": "#FF385C",
+  "accentColor": "#FF385C",
+  "palette": "noir",
+  "headline": "Home,\nanywhere.",
+  "footer": "Spec ad · Diego",
+  "concept": "Travelers arriving at characterful homes: Lisbon rooftops, warm interiors, keys in hand, golden hour",
+  "durationSec": 16,
+  "seed": 7,
+  "ui": {
+    "background": "#FFFFFF",
+    "surface": "#FFFFFF",
+    "text": "#222222",
+    "muted": "#6A6A6A",
+    "border": "#DDDDDD",
+    "primary": "#FF385C",
+    "primaryDark": "#D70466",
+    "playful": false,
+    "radius": 14,
+    "tabs": [
+      "🔍",
+      "🤍",
+      "✈️",
+      "💬",
+      "👤"
+    ],
+    "activeTab": 0
+  },
+  "steps": [
+    {
+      "title": "Search anywhere",
+      "caption": "Type a city. Get inspired.",
+      "icon": "🔍",
+      "screen": [
+        {
+          "type": "header",
+          "title": "Where to?"
+        },
+        {
+          "type": "search",
+          "placeholder": "Search destinations",
+          "query": "Lisbon, Portugal"
+        },
+        {
+          "type": "chips",
+          "items": [
+            "Anytime",
+            "Add guests",
+            "Filters"
+          ],
+          "active": 0
+        },
+        {
+          "type": "card",
+          "icon": "🏙️",
+          "title": "Lisbon, Portugal",
+          "subtitle": "City · 1,800+ homes"
+        },
+        {
+          "type": "card",
+          "icon": "🌊",
+          "title": "Cascais, Portugal",
+          "subtitle": "Beach · 35 min away"
+        }
+      ],
+      "callouts": [
+        {
+          "icon": "🌍",
+          "text": "220+ countries"
+        }
+      ]
+    },
+    {
+      "title": "Find your place",
+      "caption": "Real homes, real hosts, real reviews.",
+      "icon": "🏡",
+      "screen": [
+        {
+          "type": "listings",
+          "items": [
+            {
+              "title": "Alfama loft",
+              "subtitle": "Lisbon · 2 beds · river view",
+              "price": "€128",
+              "rating": "4.97"
+            },
+            {
+              "title": "Rooftop terrace",
+              "subtitle": "Bairro Alto · 1 bed",
+              "price": "€96",
+              "rating": "4.92"
+            },
+            {
+              "title": "Tiled townhouse",
+              "subtitle": "Graça · 3 beds",
+              "price": "€174",
+              "rating": "4.95"
+            }
+          ]
+        }
+      ],
+      "callouts": [
+        {
+          "icon": "⭐",
+          "text": "4.97 · Guest favorite"
+        }
+      ]
+    },
+    {
+      "title": "Pick your dates",
+      "caption": "Flexible stays, clear prices.",
+      "icon": "📅",
+      "screen": [
+        {
+          "type": "header",
+          "title": "When's your trip?"
+        },
+        {
+          "type": "calendar",
+          "month": "June 2026",
+          "offset": 0,
+          "days": 30,
+          "start": 12,
+          "end": 16
+        },
+        {
+          "type": "button",
+          "label": "Next",
+          "at": 0.78
+        }
+      ],
+      "callouts": [
+        {
+          "icon": "🌙",
+          "text": "4 nights"
+        }
+      ]
+    },
+    {
+      "title": "Reserve in a tap",
+      "caption": "Everything in one place.",
+      "icon": "💳",
+      "screen": [
+        {
+          "type": "header",
+          "title": "Confirm and pay"
+        },
+        {
+          "type": "card",
+          "icon": "🏡",
+          "title": "Alfama loft",
+          "subtitle": "Jun 12 – 16 · 2 guests"
+        },
+        {
+          "type": "card",
+          "icon": "💶",
+          "title": "Total €512",
+          "subtitle": "4 nights × €128"
+        },
+        {
+          "type": "card",
+          "icon": "🔑",
+          "title": "Self check-in",
+          "subtitle": "Smart lock · arrive anytime"
+        },
+        {
+          "type": "button",
+          "label": "Reserve",
+          "at": 0.62
+        }
+      ],
+      "callouts": [
+        {
+          "icon": "⚡",
+          "text": "Instant book"
+        }
+      ]
+    },
+    {
+      "title": "Go.",
+      "caption": "Your home in Lisbon is waiting.",
+      "icon": "✈️",
+      "screen": [
+        {
+          "type": "confirm",
+          "title": "You're going to Lisbon!",
+          "subtitle": "Jun 12 – 16 · Alfama loft"
+        }
+      ],
+      "callouts": [
+        {
+          "icon": "✈️",
+          "text": "See you in 3 days"
+        }
+      ]
+    }
+  ],
+  "music": "audio/music/bounce-128.wav",
+  "bpm": 128,
+  "sfx": true,
+  "flyers": [
+    {
+      "kind": "plane",
+      "path": "flyby",
+      "from": 11.3,
+      "to": 13.2,
+      "scale": 1.1
+    },
+    {
+      "kind": "paperplane",
+      "path": "swoop",
+      "from": 0.1,
+      "to": 1.3,
+      "scale": 0.8
+    }
+  ]
+}

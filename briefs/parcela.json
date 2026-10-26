@@ -1,0 +1,29 @@
+{
+  "template": "MapPin",
+  "brand": "Parcela",
+  "brandColor": "#FFFFFF",
+  "accentColor": "#FF5A36",
+  "logo": "logos/parcela.svg",
+  "wordmark": "logos/parcela-wordmark.svg",
+  "palette": "noir",
+  "city": "Madrid",
+  "pinLabel": "Delivered · 14 min",
+  "routes": 3,
+  "headline": "It happened.",
+  "footer": "Spec ad · Diego",
+  "concept": "Same-day parcel delivery in a European city, couriers on bikes, doorsteps at golden hour",
+  "durationSec": 8,
+  "seed": 3,
+  "music": "audio/music/drive-118.wav",
+  "bpm": 118,
+  "sfx": true,
+  "flyers": [
+    {
+      "kind": "paperplane",
+      "path": "flyby",
+      "from": 0.1,
+      "to": 1.4,
+      "scale": 0.8
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "template": "DataExplainer",
+  "brand": "Nordwear",
+  "brandColor": "#FFFFFF",
+  "accentColor": "#E8B04B",
+  "wordmark": "logos/nordwear-wordmark.svg",
+  "palette": "warm",
+  "title": "Revenue 2024",
+  "prefix": "€",
+  "suffix": "B",
+  "items": [
+    {
+      "label": "Nordwear",
+      "value": 38,
+      "year": "2024",
+      "color": "#E8B04B",
+      "logo": "logos/nordwear-wordmark.svg"
+    },
+    {
+      "label": "Kova",
+      "value": 20,
+      "year": "2024",
+      "color": "#5A6B85",
+      "logo": "logos/kova.svg"
+    }
+  ],
+  "headline": "Almost double.",
+  "footer": "Spec ad · Diego",
+  "concept": "Scandinavian fashion retail, minimal stores, linen and wool textures",
+  "grid": true,
+  "durationSec": 8,
+  "music": "audio/music/drive-118.wav",
+  "bpm": 118,
+  "sfx": true
+}

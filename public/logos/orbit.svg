@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Orbit: dos arcos entrelazados -->
+  <circle cx="100" cy="100" r="34" fill="#fff"/>
+  <ellipse cx="100" cy="100" rx="88" ry="36" fill="none" stroke="#fff" stroke-width="11" transform="rotate(-30 100 100)"/>
+</svg>

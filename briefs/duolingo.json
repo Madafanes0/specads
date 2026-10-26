@@ -1,0 +1,235 @@
+{
+  "template": "AppFlow",
+  "brand": "duolingo",
+  "brandColor": "#58CC02",
+  "accentColor": "#58CC02",
+  "palette": "noir",
+  "headline": "Five minutes.\nEvery day.",
+  "footer": "Spec ad · Diego",
+  "concept": "People learning a language in small daily moments: commute, coffee, couch, playful and bright",
+  "durationSec": 16,
+  "seed": 4,
+  "ui": {
+    "background": "#FFFFFF",
+    "surface": "#FFFFFF",
+    "text": "#4B4B4B",
+    "muted": "#AFAFAF",
+    "border": "#E5E5E5",
+    "primary": "#58CC02",
+    "primaryDark": "#58A700",
+    "playful": true,
+    "radius": 16,
+    "tabs": [
+      "🏠",
+      "🗣️",
+      "🏋️",
+      "🛡️",
+      "👤"
+    ],
+    "activeTab": 0
+  },
+  "steps": [
+    {
+      "title": "Pick a language",
+      "caption": "Spanish, French, Japanese and 40+ more.",
+      "icon": "🌍",
+      "screen": [
+        {
+          "type": "header",
+          "title": "What would you like to learn?"
+        },
+        {
+          "type": "options",
+          "pick": 0,
+          "items": [
+            {
+              "icon": "🇪🇸",
+              "label": "Spanish"
+            },
+            {
+              "icon": "🇫🇷",
+              "label": "French"
+            },
+            {
+              "icon": "🇯🇵",
+              "label": "Japanese"
+            },
+            {
+              "icon": "🇮🇹",
+              "label": "Italian"
+            },
+            {
+              "icon": "🇩🇪",
+              "label": "German"
+            }
+          ]
+        },
+        {
+          "type": "button",
+          "label": "Continue",
+          "at": 0.78
+        }
+      ],
+      "callouts": [
+        {
+          "icon": "🌍",
+          "text": "40+ languages"
+        }
+      ]
+    },
+    {
+      "title": "Learn in bite-sized lessons",
+      "caption": "It feels like a game. It works like a class.",
+      "icon": "📘",
+      "screen": [
+        {
+          "type": "progress",
+          "label": "Lesson 3 of 5",
+          "from": 40,
+          "to": 60
+        },
+        {
+          "type": "lesson",
+          "prompt": "Translate this sentence",
+          "sentence": "El gato bebe leche.",
+          "words": [
+            "milk",
+            "The",
+            "drinks",
+            "bread",
+            "cat",
+            "water"
+          ],
+          "answer": [
+            1,
+            4,
+            2,
+            0
+          ],
+          "check": "Check"
+        },
+        {
+          "type": "banner",
+          "text": "Nicely done!",
+          "icon": "✓",
+          "at": 0.8
+        }
+      ],
+      "callouts": [
+        {
+          "icon": "⚡",
+          "text": "+10 XP"
+        }
+      ]
+    },
+    {
+      "title": "Keep your streak",
+      "caption": "Show up every day and watch it grow.",
+      "icon": "🔥",
+      "screen": [
+        {
+          "type": "streak",
+          "from": 6,
+          "to": 7,
+          "label": "day streak!",
+          "color": "#FF9600"
+        }
+      ],
+      "callouts": [
+        {
+          "icon": "🔥",
+          "text": "7 days in a row"
+        }
+      ]
+    },
+    {
+      "title": "Climb the path",
+      "caption": "Unit by unit, from hello to fluent.",
+      "icon": "🗺️",
+      "screen": [
+        {
+          "type": "header",
+          "title": "Unit 2",
+          "subtitle": "Order food, talk about family"
+        },
+        {
+          "type": "path",
+          "nodes": 5,
+          "current": 2,
+          "label": "START"
+        }
+      ],
+      "callouts": [
+        {
+          "icon": "💎",
+          "text": "+20 gems"
+        }
+      ]
+    },
+    {
+      "title": "Win the week",
+      "caption": "Earn XP, climb leagues, celebrate.",
+      "icon": "🏆",
+      "screen": [
+        {
+          "type": "celebrate",
+          "icon": "🏆",
+          "title": "Lesson complete!",
+          "stats": [
+            {
+              "label": "TOTAL XP",
+              "value": "⚡ 25",
+              "color": "#FFC800"
+            },
+            {
+              "label": "AMAZING",
+              "value": "🎯 98%",
+              "color": "#58CC02"
+            }
+          ]
+        },
+        {
+          "type": "button",
+          "label": "Continue",
+          "at": 0.8
+        }
+      ],
+      "callouts": [
+        {
+          "icon": "🥇",
+          "text": "#1 in Gold League"
+        }
+      ]
+    }
+  ],
+  "music": "audio/music/bounce-128.wav",
+  "bpm": 128,
+  "sfx": true,
+  "flyers": [
+    {
+      "kind": "owl",
+      "path": "swoop",
+      "from": 0.05,
+      "to": 1.5,
+      "scale": 1.4
+    },
+    {
+      "kind": "owl",
+      "path": "orbit",
+      "from": 11.2,
+      "to": 13.0,
+      "scale": 1.0
+    },
+    {
+      "kind": "owl",
+      "path": "perch",
+      "from": 13.2,
+      "to": 16.0,
+      "scale": 0.9,
+      "target": {
+        "x": 300,
+        "y": 170
+      }
+    }
+  ]
+}

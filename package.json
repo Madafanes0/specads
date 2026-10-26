@@ -1,0 +1,35 @@
+{
+  "name": "spec-ads",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Spec ads verticales estilo agencia con Remotion",
+  "scripts": {
+    "dev": "remotion studio",
+    "render": "tsx scripts/render.ts",
+    "render:all": "tsx scripts/render-all.ts",
+    "prompts": "tsx scripts/image-prompts.ts",
+    "stills": "tsx scripts/stills.ts",
+    "typecheck": "tsc --noEmit",
+    "check:layouts": "tsx scripts/check-layouts.ts"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.539",
+    "@remotion/cli": "4.0.539",
+    "@remotion/google-fonts": "4.0.539",
+    "@remotion/media": "4.0.539",
+    "@remotion/media-utils": "4.0.539",
+    "@remotion/motion-blur": "4.0.539",
+    "@remotion/renderer": "4.0.539",
+    "@remotion/zod-types": "4.0.539",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "remotion": "4.0.539",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.1.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}

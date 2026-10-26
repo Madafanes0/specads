@@ -1,0 +1,28 @@
+{
+  "template": "AppShowcase",
+  "brand": "Orbit",
+  "brandColor": "#FFFFFF",
+  "accentColor": "#8B5CF6",
+  "logo": "logos/orbit.svg",
+  "wordmark": "logos/orbit-wordmark.svg",
+  "screens": [],
+  "layout": "columns",
+  "palette": "noir",
+  "headline": "Half a second.",
+  "footer": "Spec ad · Diego",
+  "concept": "Personal finance app, people checking their phone in calm modern spaces",
+  "grid": true,
+  "durationSec": 8,
+  "music": "audio/music/bounce-128.wav",
+  "bpm": 128,
+  "sfx": true,
+  "flyers": [
+    {
+      "kind": "paperplane",
+      "path": "orbit",
+      "from": 3.2,
+      "to": 6.0,
+      "scale": 0.6
+    }
+  ]
+}

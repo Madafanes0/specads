@@ -1,0 +1,30 @@
+{
+  "template": "HeroLogo",
+  "brand": "Lumen",
+  "brandColor": "#FFFFFF",
+  "accentColor": "#3D8BFF",
+  "logo": "logos/lumen.svg",
+  "wordmark": "logos/lumen-wordmark.svg",
+  "images": [],
+  "cardCount": 6,
+  "layout": "orbit",
+  "palette": "cold",
+  "headline": "Where to?",
+  "footer": "Spec ad · Diego",
+  "concept": "Rides at night through a modern city, people arriving, warm interiors vs cool streets",
+  "grid": false,
+  "durationSec": 8,
+  "seed": 1,
+  "cardStyle": "frame",
+  "captions": [
+    "PICKUP · 2 MIN",
+    "AIRPORT · 24 MIN",
+    "LATE NIGHT",
+    "HOME · 11 MIN",
+    "CONCERT · 8 MIN",
+    "DOWNTOWN"
+  ],
+  "music": "audio/music/drive-118.wav",
+  "bpm": 118,
+  "sfx": true
+}
