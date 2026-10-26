@@ -1,0 +1,23 @@
+{
+  "template": "DataExplainer",
+  "brand": "Cazauto",
+  "brandColor": "#FFFFFF",
+  "accentColor": "#FF6A1A",
+  "logo": "logos/cazauto.svg",
+  "wordmark": "logos/cazauto-wordmark.svg",
+  "palette": "warm",
+  "title": "Revisiones por semana",
+  "source": "4 PORTALES · CADA 3 HORAS",
+  "items": [
+    { "label": "A mano", "value": 7, "year": "CUANDO TE ACUERDAS", "color": "#5E6470" },
+    { "label": "Cazauto", "value": 56, "year": "24/7, SIN TI", "color": "#FF6A1A", "logo": "logos/cazauto-wordmark.svg" }
+  ],
+  "headline": "56 veces por semana.\nSin que muevas un dedo.",
+  "footer": "Spec ad · Diego",
+  "concept": "Mexican used-car market, car lots at golden hour, phone notifications, city streets of CDMX",
+  "grid": true,
+  "durationSec": 8,
+  "music": "audio/music/drive-118.wav",
+  "bpm": 118,
+  "sfx": true
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 64">
+  <circle cx="30" cy="32" r="19" fill="none" stroke="#fff" stroke-width="5"/>
+  <circle cx="30" cy="32" r="5" fill="#fff"/>
+  <path d="M30 5v10M30 49v10M3 32h10M47 32h10" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+  <text x="70" y="48" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="800" font-size="46" letter-spacing="-1" fill="#fff">cazauto</text>
+</svg>

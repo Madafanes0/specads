@@ -37,6 +37,9 @@ export const KineticHeadline: React.FC<Props> = ({ text, start, color = "#fff", 
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const lines = toLines(text);
+  // Auto-ajuste: líneas largas bajan el tamaño para no salirse de los 940 px útiles
+  const longest = Math.max(...text.split("\n").map((l) => l.length));
+  fontSize = Math.min(fontSize, Math.floor(940 / (longest * 0.56)));
   let idx = 0;
   return (
     <div

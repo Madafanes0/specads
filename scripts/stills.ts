@@ -3,11 +3,12 @@ import { bundle } from "@remotion/bundler";
 import { renderStill, selectComposition } from "@remotion/renderer";
 import fs from "node:fs";
 import path from "node:path";
+import { readBrief } from "./lib";
 
 const main = async () => {
   const [briefPath, ...frameArgs] = process.argv.slice(2);
   if (!briefPath) throw new Error("Uso: npm run stills -- briefs/x.json [frames]");
-  const brief = JSON.parse(fs.readFileSync(briefPath, "utf8"));
+  const brief = readBrief(briefPath);
   const name = path.basename(briefPath, ".json");
   const serveUrl = await bundle({ entryPoint: path.resolve("src/index.ts") });
   const comp = await selectComposition({ serveUrl, id: brief.template, inputProps: brief });

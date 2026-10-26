@@ -3,15 +3,25 @@ import { bundle } from "@remotion/bundler";
 import { renderMedia, selectComposition } from "@remotion/renderer";
 import fs from "node:fs";
 import path from "node:path";
+import { appFlowSchema, appShowcaseSchema, dataExplainerSchema, heroLogoSchema, mapPinSchema } from "../src/schemas";
 
-export const TEMPLATES = ["HeroLogo", "DataExplainer", "MapPin", "AppShowcase", "AppFlow"];
+const SCHEMAS = {
+  HeroLogo: heroLogoSchema,
+  DataExplainer: dataExplainerSchema,
+  MapPin: mapPinSchema,
+  AppShowcase: appShowcaseSchema,
+  AppFlow: appFlowSchema,
+} as const;
+export const TEMPLATES = Object.keys(SCHEMAS);
 
 export const readBrief = (file: string) => {
   const brief = JSON.parse(fs.readFileSync(file, "utf8"));
   if (!TEMPLATES.includes(brief.template)) {
     throw new Error(`${file}: "template" debe ser uno de ${TEMPLATES.join(", ")}`);
   }
-  return brief as Record<string, unknown> & { template: string; brand: string };
+  // Se valida y completa con defaults: así ningún campo omitido hereda el valor del brief de ejemplo de la composition
+  const parsed = SCHEMAS[brief.template as keyof typeof SCHEMAS].parse(brief);
+  return parsed as Record<string, unknown> & { template: string; brand: string };
 };
 
 export const makeBundle = () => bundle({ entryPoint: path.resolve("src/index.ts") });

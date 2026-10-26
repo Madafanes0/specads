@@ -61,14 +61,21 @@ export const dataExplainerSchema = baseSchema.extend({
   prefix: z.string().default(""),
   suffix: z.string().default(""),
   decimals: z.number().int().min(0).max(2).default(0),
+  // Fuente de los datos (texto chico bajo el título)
+  source: z.string().optional(),
   items: z
     .array(
       z.object({
         label: z.string(),
         value: z.number(),
-        year: z.string(),
+        year: z.string().default(""),
         color: zColor(),
         logo: z.string().optional(),
+        // Overrides por barra: mostrar otro número/unidad que el usado para la altura (ej. 0.17 h → "10 min")
+        countTo: z.number().optional(),
+        prefix: z.string().optional(),
+        suffix: z.string().optional(),
+        decimals: z.number().int().min(0).max(2).optional(),
       }),
     )
     .min(2)

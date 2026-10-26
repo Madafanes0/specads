@@ -27,7 +27,7 @@ export const DataExplainer: React.FC<DataExplainerProps> = (props) => {
   const dim = useFocusDim(b.sloganIn);
   const max = Math.max(...props.items.map((i) => i.value));
   const n = props.items.length;
-  const gap = n <= 2 ? 360 : n === 3 ? 300 : 240;
+  const gap = n <= 2 ? 320 : n === 3 ? 300 : 240;
   const barW = n <= 2 ? 210 : 170;
 
   // Sonidos: título, whoosh + tono que sube por barra, ticks del contador y monedas al final
@@ -63,6 +63,7 @@ export const DataExplainer: React.FC<DataExplainerProps> = (props) => {
               const H = (it.value / max) * MAX_H * p;
               const x = (i - (n - 1) / 2) * gap;
               const logo = resolveAsset(it.logo);
+              const valueText = `${it.prefix ?? props.prefix}${it.countTo ?? it.value}${it.suffix ?? props.suffix}`;
               const labelIn = interpolate(frame - delay, [10, 30], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
               return (
                 <React.Fragment key={i}>
@@ -71,12 +72,12 @@ export const DataExplainer: React.FC<DataExplainerProps> = (props) => {
                   <Node3D x={x} y={FLOOR_Y - H - 70} z={barW / 2}>
                     <div style={{ transform: "translate(-50%, -100%)", opacity: labelIn }}>
                       <Counter
-                        value={it.value}
+                        value={it.countTo ?? it.value}
                         progress={p}
-                        prefix={props.prefix}
-                        suffix={props.suffix}
-                        decimals={props.decimals}
-                        style={{ fontSize: 92, color: "#fff", textShadow: `0 0 40px ${rgba(it.color, 0.6)}` }}
+                        prefix={it.prefix ?? props.prefix}
+                        suffix={it.suffix ?? props.suffix}
+                        decimals={it.decimals ?? props.decimals}
+                        style={{ fontSize: valueText.length > 5 ? 76 : 92, whiteSpace: "nowrap", color: "#fff", textShadow: `0 0 40px ${rgba(it.color, 0.6)}` }}
                       />
                     </div>
                   </Node3D>
@@ -92,6 +93,7 @@ export const DataExplainer: React.FC<DataExplainerProps> = (props) => {
                         gap: 10,
                         fontFamily: FONT,
                         color: "#fff",
+                        whiteSpace: "nowrap",
                       }}
                     >
                       {logo ? (
@@ -99,7 +101,7 @@ export const DataExplainer: React.FC<DataExplainerProps> = (props) => {
                       ) : (
                         <div style={{ fontSize: 44, fontWeight: 700, letterSpacing: "-0.02em" }}>{it.label}</div>
                       )}
-                      <div style={{ fontSize: 28, fontWeight: 500, color: "rgba(255,255,255,0.5)", letterSpacing: "0.08em" }}>{it.year}</div>
+                      {it.year && <div style={{ fontSize: 28, fontWeight: 500, color: "rgba(255,255,255,0.5)", letterSpacing: "0.08em" }}>{it.year}</div>}
                     </div>
                   </Node3D>
                 </React.Fragment>
@@ -127,6 +129,9 @@ export const DataExplainer: React.FC<DataExplainerProps> = (props) => {
             }}
           >
             {props.title}
+            {props.source && (
+              <div style={{ marginTop: 14, fontSize: 26, fontWeight: 500, letterSpacing: "0.06em", color: "rgba(255,255,255,0.45)" }}>{props.source}</div>
+            )}
           </div>
           <KineticHeadline text={props.headline} start={b.sloganIn} glow={props.accentColor} />
         </>
