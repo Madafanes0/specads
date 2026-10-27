@@ -27,6 +27,7 @@ export const Wordmark: React.FC<{ src?: string; brand: string; delay?: number; h
 export const Footer: React.FC<{ text: string; delay?: number }> = ({ text, delay = 30 }) => {
   const frame = useCurrentFrame();
   const o = interpolate(frame, [delay, delay + 30], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  if (!text) return null;
   return (
     <div
       style={{

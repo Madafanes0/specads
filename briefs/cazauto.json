@@ -2,20 +2,34 @@
   "template": "DataExplainer",
   "brand": "Cazauto",
   "brandColor": "#FFFFFF",
-  "accentColor": "#FF6A1A",
+  "accentColor": "#15803d",
   "logo": "logos/cazauto.svg",
   "wordmark": "logos/cazauto-wordmark.svg",
-  "palette": "warm",
+  "palette": "ink",
   "title": "Horas buscando auto",
   "source": "FUENTE: COX AUTOMOTIVE 2024",
   "suffix": " h",
   "decimals": 1,
   "items": [
-    { "label": "A mano", "value": 7.5, "year": "4+ PORTALES", "color": "#5E6470" },
-    { "label": "Cazauto", "value": 0.17, "countTo": 10, "suffix": " min", "decimals": 0, "year": "SETUP ÚNICO", "color": "#FF6A1A", "logo": "logos/cazauto-wordmark.svg" }
+    {
+      "label": "A mano",
+      "value": 7.5,
+      "year": "4+ PORTALES",
+      "color": "#52525b"
+    },
+    {
+      "label": "Cazauto",
+      "value": 0.17,
+      "countTo": 10,
+      "suffix": " min",
+      "decimals": 0,
+      "year": "SETUP ÚNICO",
+      "color": "#15803d",
+      "logo": "logos/cazauto-wordmark.svg"
+    }
   ],
   "headline": "Deja de buscar.\nEmpieza a decidir.",
-  "footer": "Spec ad · Diego",
+  "footer": "",
   "concept": "Mexican used-car market, car lots at golden hour, phone notifications, city streets of CDMX",
   "grid": true,
   "durationSec": 8,

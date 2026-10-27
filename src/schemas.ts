@@ -3,7 +3,7 @@ import { zColor } from "@remotion/zod-types";
 import { z } from "zod";
 
 export const layoutEnum = z.enum(["orbit", "columns", "scatter", "arc"]);
-export const paletteEnum = z.enum(["noir", "warm", "cold"]);
+export const paletteEnum = z.enum(["noir", "warm", "cold", "ink"]);
 
 /** Props comunes a todas las plantillas */
 export const baseSchema = z.object({
@@ -13,7 +13,8 @@ export const baseSchema = z.object({
   logo: z.string().optional(),
   wordmark: z.string().optional(),
   headline: z.string().describe("Usa \\n para forzar el salto de línea"),
-  footer: z.string(),
+  // Texto del pie ("Spec ad · autor"); vacío = sin pie
+  footer: z.string().default(""),
   palette: paletteEnum.default("noir"),
   music: z.string().optional(),
   /** Timestamps (s) de beats musicales para pulso y slogan */
