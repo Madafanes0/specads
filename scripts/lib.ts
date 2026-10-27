@@ -3,7 +3,7 @@ import { bundle } from "@remotion/bundler";
 import { renderMedia, selectComposition } from "@remotion/renderer";
 import fs from "node:fs";
 import path from "node:path";
-import { appFlowSchema, appShowcaseSchema, dataExplainerSchema, heroLogoSchema, mapPinSchema } from "../src/schemas";
+import { appFlowSchema, appShowcaseSchema, dataExplainerSchema, heroLogoSchema, mapPinSchema, tunnelSchema } from "../src/schemas";
 
 const SCHEMAS = {
   HeroLogo: heroLogoSchema,
@@ -11,6 +11,7 @@ const SCHEMAS = {
   MapPin: mapPinSchema,
   AppShowcase: appShowcaseSchema,
   AppFlow: appFlowSchema,
+  Tunnel: tunnelSchema,
 } as const;
 export const TEMPLATES = Object.keys(SCHEMAS);
 

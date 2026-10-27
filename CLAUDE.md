@@ -5,7 +5,7 @@ Generador de spec ads verticales (1080×1920, 60 fps) estilo @riki.bosso, hechos
 ## Cómo se trabaja
 
 - Cada video es un JSON en `briefs/` que elige `template`. Los scripts lo validan con el schema de `src/schemas.ts` (completa defaults) antes de renderizar.
-- Plantillas en `src/templates/`: HeroLogo, DataExplainer, MapPin, AppShowcase, AppFlow (roadmap animado de una app; ver duolingo.json y airbnb.json).
+- Plantillas en `src/templates/`: HeroLogo, DataExplainer, MapPin, AppShowcase, AppFlow (roadmap animado de una app; ver duolingo.json y airbnb.json), Tunnel (universo 3D de tarjetas, componentes en `src/components/tunnel/`).
 - Todo es función del frame (`useCurrentFrame`, `spring`, `interpolate`). Nada de animaciones CSS ni `Math.random()` — usar `random(seed)` de Remotion.
 - Efectos de sonido: eventos `SfxEvent` sincronizados al frame de cada animación (`src/lib/sfx.tsx`), renderizados fuera de `CameraMotionBlur` (dentro se silencian). El audio se genera con `sh scripts/make-sounds.sh` (ffmpeg); los .wav ya están en el repo.
 - Imágenes: placeholders procedurales cuando falta el archivo; `npm run prompts` genera prompts para IA.
@@ -22,7 +22,7 @@ npm run render:all
 npm run check:layouts                         # valida que las tarjetas de HeroLogo no se encimen
 ```
 
-`CONCURRENCY` (default 3) controla las pestañas de Chrome en paralelo. En la PC (32 GB RAM, RTX 3060, Windows) se puede subir a 8–12: `set CONCURRENCY=8 && npm run render -- briefs/x.json` (PowerShell: `$env:CONCURRENCY=8; npm run render -- briefs/x.json`). `remotion.config.ts` y los scripts usan `gl: "angle"` (GPU en Windows).
+`CONCURRENCY` (default 3) controla las pestañas de Chrome en paralelo. En la PC (32 GB RAM, RTX 3060, Windows) se puede subir a 8–12: `set CONCURRENCY=8 && npm run render -- briefs/x.json` (PowerShell: `$env:CONCURRENCY=8; npm run render -- briefs/x.json`). `remotion.config.ts` y los scripts usan `gl: "angle"` (GPU en Windows). Excepción: `Tunnel` con 900 tarjetas se quedó sin memoria con `CONCURRENCY=8` (con el disco C: casi lleno); con 3 renderiza en ~2.5 min.
 
 ## Flujo entre máquinas
 
@@ -37,7 +37,7 @@ Plataforma mexicana que busca autos usados en 4 portales a la vez, revisa cada 3
 - Datos clave: 7.5 h de búsqueda a mano vs 10 min con Cazauto (Cox Automotive 2024); 7 vs 56 revisiones/semana; 4.2 portales visitados (Motors 2024); proceso de 48 días; 90 % investiga online (Forrester); modelos top se venden en ~30 días (iSeeCars 2026); 50 M visitas a seminuevos en Mercado Libre en un trimestre (Expansión 2026). Citar la fuente en pantalla cuando se use un dato.
 - Hechos: `briefs/cazauto.json` (horas, ya con colores de marca) y `briefs/cazauto-revisiones.json` (aún en naranja #FF6A1A, pendiente de pasar a verde).
 
-## Siguiente trabajo: video "túnel" de Cazauto (en diseño)
+## Video "túnel" de Cazauto (plantilla `Tunnel`, primera versión hecha)
 
 Inspirado en "How to Anything" de Riccardo Bosso (riccardobosso.com/#youtube): todo vive en un solo universo 3D de cientos de tarjetas y la cámara vuela de un momento a otro sin cortes. Concepto propuesto (vertical, ~16 s, verde #15803d), sujeto a ajustes del usuario:
 
@@ -48,4 +48,4 @@ Inspirado en "How to Anything" de Riccardo Bosso (riccardobosso.com/#youtube): t
 5. Dato 11–13.5 s: 7.5 h → 10 min.
 6. Cierre 13.5–16 s: "Tú decides. Cazauto caza." + logo + cazauto.com.mx.
 
-Plan técnico: nueva plantilla con la cantidad de tarjetas como campo del brief (≈150 para revisar en la Mac, 800–1,100 para el render final en la PC). Para que escale, desenfoque por capas (pocas tarjetas nítidas al frente, el fondo en grupos ya desenfocados) en lugar de `filter: blur` por tarjeta, y 30–40 imágenes reutilizadas.
+Brief: `briefs/cazauto-tunel.json` (`cardCount` 150 para revisar; subir a 800–1,100 para el render final). Los nombres de portales del brief son provisionales: confirmar cuáles usa Cazauto. Plantilla con la cantidad de tarjetas como campo del brief (≈150 para revisar en la Mac, 800–1,100 para el render final en la PC). Para que escale, desenfoque por capas (pocas tarjetas nítidas al frente, el fondo en grupos ya desenfocados) en lugar de `filter: blur` por tarjeta, y 30–40 imágenes reutilizadas.

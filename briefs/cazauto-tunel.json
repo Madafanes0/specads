@@ -1,0 +1,64 @@
+{
+  "template": "Tunnel",
+  "brand": "Cazauto",
+  "brandColor": "#FFFFFF",
+  "accentColor": "#15803d",
+  "logo": "logos/cazauto.svg",
+  "wordmark": "logos/cazauto-wordmark.svg",
+  "palette": "ink",
+  "footer": "",
+  "durationSec": 16,
+  "cardCount": 900,
+  "motionBlur": true,
+  "images": ["img/cazauto-tunel/1.jpg", "img/cazauto-tunel/2.jpg", "img/cazauto-tunel/3.jpg", "img/cazauto-tunel/4.jpg", "img/cazauto-tunel/5.jpg", "img/cazauto-tunel/6.jpg", "img/cazauto-tunel/7.jpg", "img/cazauto-tunel/8.jpg", "img/cazauto-tunel/9.jpg", "img/cazauto-tunel/10.jpg", "img/cazauto-tunel/11.jpg", "img/cazauto-tunel/12.jpg", "img/cazauto-tunel/13.jpg", "img/cazauto-tunel/14.jpg", "img/cazauto-tunel/15.jpg", "img/cazauto-tunel/16.jpg", "img/cazauto-tunel/17.jpg", "img/cazauto-tunel/18.jpg", "img/cazauto-tunel/19.jpg", "img/cazauto-tunel/20.jpg", "img/cazauto-tunel/21.jpg", "img/cazauto-tunel/22.jpg", "img/cazauto-tunel/23.jpg", "img/cazauto-tunel/24.jpg", "img/cazauto-tunel/25.jpg", "img/cazauto-tunel/26.jpg", "img/cazauto-tunel/27.jpg", "img/cazauto-tunel/28.jpg", "img/cazauto-tunel/29.jpg", "img/cazauto-tunel/30.jpg", "img/cazauto-tunel/31.jpg", "img/cazauto-tunel/32.jpg", "img/cazauto-tunel/33.jpg", "img/cazauto-tunel/34.jpg", "img/cazauto-tunel/35.jpg", "img/cazauto-tunel/36.jpg"],
+  "portals": ["Mercado Libre", "Seminuevos", "Autocosmos", "Kavak"],
+  "models": ["Nissan Versa", "VW Jetta", "Chevrolet Aveo", "Toyota Corolla", "Honda Civic", "Kia Rio", "Hyundai Accent", "Mazda CX-5", "Seat Ibiza", "Nissan Sentra", "Mazda 2", "VW Vento"],
+  "search": {
+    "prompt": "¿Qué auto buscas?",
+    "query": "Mazda 3 2020 hasta $250 mil",
+    "suggestions": ["Mazda 3 2020", "Mazda 3 Hatchback", "Mazda CX-3"],
+    "pick": 0,
+    "chips": ["Mazda 3", "2020", "≤ $250 mil"]
+  },
+  "hunt": {
+    "live": "En vivo",
+    "label": "anuncios revisados",
+    "count": 1248,
+    "cadence": "Revisando cada 3 h · 24/7",
+    "match": "¡Coincide!"
+  },
+  "target": {
+    "title": "Mazda 3",
+    "year": "2020",
+    "km": "41,200 km",
+    "city": "CDMX",
+    "price": "$238,000",
+    "oldPrice": "$250,000",
+    "portal": 0,
+    "image": "img/cazauto-tunel/target.jpg"
+  },
+  "alert": {
+    "app": "Cazauto",
+    "title": "¡Encontramos tu Mazda 3!",
+    "body": "Bajó $12,000 · ahora $238,000",
+    "time": "9:41",
+    "date": "lunes, 26 de octubre",
+    "caption": "Te avisamos al instante",
+    "secondary": { "app": "Correo", "title": "Cazauto: 1 auto nuevo", "body": "Mazda 3 2020 · 41,200 km · CDMX" }
+  },
+  "stat": {
+    "fromLabel": "A mano",
+    "fromValue": 7.5,
+    "fromSuffix": " h",
+    "fromDecimals": 1,
+    "toLabel": "Con Cazauto",
+    "toText": "10 min",
+    "source": "FUENTE: COX AUTOMOTIVE 2024"
+  },
+  "headline": "Tú decides.\nCazauto caza.",
+  "url": "cazauto.com.mx",
+  "concept": "Used cars for sale in Mexico, clean side-profile listing photos of sedans and hatchbacks on dealer lots, daylight, CDMX",
+  "music": "audio/music/drive-118.wav",
+  "bpm": 118,
+  "sfx": true
+}

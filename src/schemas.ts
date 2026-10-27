@@ -182,3 +182,70 @@ export type DataExplainerProps = z.infer<typeof dataExplainerSchema>;
 export type MapPinProps = z.infer<typeof mapPinSchema>;
 export type AppShowcaseProps = z.infer<typeof appShowcaseSchema>;
 export type BaseProps = z.infer<typeof baseSchema>;
+
+// ---------- Tunnel: un solo universo 3D de anuncios, la cámara vuela sin cortes ----------
+
+export const tunnelSchema = baseSchema.extend({
+  template: z.literal("Tunnel").default("Tunnel"),
+  durationSec: z.number().min(14).max(20).default(16),
+  /** Tarjetas del universo: ≈150 para revisar, 800–1,100 para el render final */
+  cardCount: z.number().int().min(40).max(1500).default(150),
+  /** Fotos de autos reutilizables (si faltan, placeholders procedurales) */
+  images: z.array(z.string()).default([]),
+  /** Motion blur en los tramos rápidos (caro con muchas tarjetas) */
+  motionBlur: z.boolean().default(true),
+  /** Portales donde se buscan los anuncios (etiqueta de cada tarjeta) */
+  portals: z.array(z.string()).min(1).max(6).default(["Portal 1", "Portal 2", "Portal 3", "Portal 4"]),
+  /** Modelos para los anuncios de relleno */
+  models: z.array(z.string()).default(["Nissan Versa", "VW Jetta", "Chevrolet Aveo", "Toyota Corolla", "Honda Civic", "Kia Rio", "Hyundai Accent", "Mazda CX-5", "Seat Ibiza", "Nissan Sentra"]),
+  search: z.object({
+    prompt: z.string().default("¿Qué auto buscas?"),
+    query: z.string(),
+    /** Autocompletado que aparece mientras se escribe la primera palabra */
+    suggestions: z.array(z.string()).max(4).default([]),
+    /** Índice de la sugerencia que se toca */
+    pick: z.number().int().default(0),
+    /** Filtros que caen al dar enter */
+    chips: z.array(z.string()).max(4).default([]),
+  }),
+  hunt: z.object({
+    live: z.string().default("En vivo"),
+    label: z.string().default("anuncios revisados"),
+    count: z.number().int().default(1248),
+    cadence: z.string().default("Revisando cada 3 h · 24/7"),
+    match: z.string().default("¡Coincide!"),
+  }),
+  /** El anuncio que la mira encuentra */
+  target: z.object({
+    title: z.string(),
+    year: z.string(),
+    km: z.string(),
+    city: z.string().default("CDMX"),
+    price: z.string(),
+    oldPrice: z.string().optional(),
+    portal: z.number().int().default(0),
+    image: z.string().optional(),
+  }),
+  alert: z.object({
+    app: z.string().default("Cazauto"),
+    title: z.string(),
+    body: z.string(),
+    time: z.string().default("9:41"),
+    date: z.string().default("lunes, 26 de octubre"),
+    caption: z.string().default(""),
+    /** Segunda notificación (p. ej. el correo) que entra después */
+    secondary: z.object({ app: z.string(), title: z.string(), body: z.string() }).optional(),
+  }),
+  stat: z.object({
+    fromLabel: z.string(),
+    fromValue: z.number(),
+    fromSuffix: z.string().default(" h"),
+    fromDecimals: z.number().int().min(0).max(2).default(1),
+    toLabel: z.string(),
+    toText: z.string(),
+    source: z.string().default(""),
+  }),
+  url: z.string().default(""),
+});
+
+export type TunnelProps = z.infer<typeof tunnelSchema>;

@@ -7,7 +7,9 @@ import parcela from "../briefs/parcela.json";
 import orbit from "../briefs/orbit.json";
 import duolingo from "../briefs/duolingo.json";
 import airbnb from "../briefs/airbnb.json";
-import { appFlowSchema, appShowcaseSchema, dataExplainerSchema, heroLogoSchema, mapPinSchema } from "./schemas";
+import cazautoTunel from "../briefs/cazauto-tunel.json";
+import { appFlowSchema, appShowcaseSchema, dataExplainerSchema, heroLogoSchema, mapPinSchema, tunnelSchema } from "./schemas";
+import { Tunnel } from "./templates/Tunnel";
 import { AppFlow } from "./templates/AppFlow";
 import { AppShowcase } from "./templates/AppShowcase";
 import { MapPin } from "./templates/MapPin";
@@ -77,6 +79,14 @@ export const RemotionRoot: React.FC = () => (
       component={AppFlow}
       schema={appFlowSchema}
       defaultProps={appFlowSchema.parse(duolingo)}
+      calculateMetadata={metadata()}
+      {...common}
+    />
+    <Composition
+      id="Tunnel"
+      component={Tunnel}
+      schema={tunnelSchema}
+      defaultProps={tunnelSchema.parse(cazautoTunel)}
       calculateMetadata={metadata()}
       {...common}
     />

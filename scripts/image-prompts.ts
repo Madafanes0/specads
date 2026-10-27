@@ -3,7 +3,16 @@
 import fs from "node:fs";
 import path from "node:path";
 
-type Brief = { brand: string; template: string; concept?: string; headline?: string; accentColor?: string; palette?: string };
+type Brief = {
+  brand: string;
+  template: string;
+  concept?: string;
+  headline?: string;
+  accentColor?: string;
+  palette?: string;
+  models?: string[];
+  target?: { title: string; year: string };
+};
 
 /** Nombre aproximado del color (los modelos de imagen no entienden hex) */
 const colorName = (hex = "#ffffff") => {
@@ -47,8 +56,51 @@ const SHOTS = [
   "silhouette against a bright window or sunset, rim light",
 ];
 
+// Tunnel: fotos de anuncio de seminuevos (horizontales 3:2), no fotos editoriales
+const CAR_STYLE = [
+  "realistic used-car listing photo as posted on a Mexican classifieds site",
+  "full car visible, car fills about 70% of the frame, eye-level camera, 35mm lens",
+  "clean dealer lot or street in Mexico City, soft daylight, natural colors, sharp focus",
+  "horizontal 3:2 composition",
+  "no people, no text, no watermarks, license plate blank or blurred",
+].join(", ");
+const ANGLES = ["side profile view", "front three-quarter view", "rear three-quarter view"];
+const PAINTS = ["white", "silver", "dark gray", "black", "red", "dark blue"];
+
+const buildTunnel = (file: string, b: Brief) => {
+  const models = (b.models?.length ? b.models : ["Nissan Versa", "VW Jetta", "Toyota Corolla"]).slice(0, 12);
+  const dir = `img/${path.basename(file, ".json")}`;
+  const lines: string[] = [];
+  models.forEach((m, i) =>
+    ANGLES.forEach((a, j) => {
+      const n = i * ANGLES.length + j + 1;
+      const year = 2016 + ((i * 3 + j) % 8);
+      lines.push(`${n}. \`${dir}/${n}.jpg\` — ${year} ${m}, ${PAINTS[(i + j) % PAINTS.length]}, ${a}. ${CAR_STYLE}.`);
+    }),
+  );
+  const t = b.target;
+  const md = [
+    `# Prompts de imagen · ${b.brand} (túnel)`,
+    "",
+    `Pega cada prompt en Higgsfield / Nano Banana / GPT Image y guarda el resultado en \`public/\` con el nombre indicado.`,
+    "El brief ya apunta a esas rutas: la foto que falte se queda como silueta procedural.",
+    "",
+    "## Anuncio que encuentra la mira",
+    "",
+    t ? `\`${dir}/target.jpg\` — ${t.year} ${t.title} sedan, soul red metallic, front three-quarter view, the best-looking car of the set. ${CAR_STYLE}.` : "",
+    "",
+    "## Anuncios de relleno",
+    "",
+    ...lines.flatMap((l) => [l, ""]),
+  ].join("\n");
+  const out = path.join(path.dirname(file), `${path.basename(file, ".json")}.prompts.md`);
+  fs.writeFileSync(out, md);
+  console.log(`✓ ${out}`);
+};
+
 const build = (file: string) => {
   const b: Brief = JSON.parse(fs.readFileSync(file, "utf8"));
+  if (b.template === "Tunnel") return buildTunnel(file, b);
   const concept = b.concept ?? `${b.brand} brand world, everyday moments where the product matters`;
   const n = 6 + (b.brand.length % 3); // 6–8 prompts
   const lines = SHOTS.slice(0, n).map((shot, i) => `${i + 1}. ${shot}. Scene: ${concept}. ${STYLE(b)}.`);

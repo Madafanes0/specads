@@ -17,6 +17,7 @@ npm run dev          # Remotion Studio: edita las props de cada plantilla en viv
 | `MapPin`        | Ciudad isométrica, pin con rebote, onda expansiva y rutas       | `briefs/parcela.json`   |
 | `AppShowcase`   | Mockups de teléfono flotando alrededor del logo (producto/SaaS) | `briefs/orbit.json`     |
 | `AppFlow`       | El uso principal de una app contado como roadmap, paso a paso   | `briefs/duolingo.json`, `briefs/airbnb.json` |
+| `Tunnel`        | Un solo universo 3D de anuncios; la cámara vuela sin cortes      | `briefs/cazauto-tunel.json` |
 
 Ritmo (para 8 s; se escala con `durationSec`):
 - **0–0,6 s**: flash y entrada del logo.
@@ -57,6 +58,23 @@ Para crear el flujo de otra app, copia `briefs/airbnb.json`, cambia el `ui` por 
 
 > Los logos reales de Duolingo y Airbnb no vienen en el repo. Si no hay `logo` ni `wordmark`, se dibuja el nombre de la marca en texto. Para el spec ad final, pon sus SVG oficiales en `public/logos/` y apúntalos desde el brief.
 
+## Tunnel: un universo de tarjetas sin cortes
+
+Inspirado en "How to Anything" de Riccardo Bosso. Cientos de anuncios forman un túnel y la cámara vuela por él de un momento a otro. Dura entre 14 y 20 s (diseñado a 16 s) y tiene 6 escenas:
+
+1. **Hook:** entrada rápida con rayas de luz; la mira cae de golpe y vuela a la barra de búsqueda.
+2. **Búsqueda:** `search.query` se escribe con autocompletado (`suggestions`, `pick`) y al dar enter caen los `chips`.
+3. **Cacería:** HUD "en vivo", contador de anuncios y portales que se palomean. Los anuncios destellan en verde al escanearse y se apagan; la mira se fija en el `target`.
+4. **Alerta:** teléfono con la notificación de `alert` (y `alert.secondary`, opcional).
+5. **Dato:** `stat.fromValue` se tacha y entra `stat.toText`, con su fuente.
+6. **Cierre:** mira, wordmark, `url` y slogan.
+
+- **`cardCount`:** 40–1,500. Con unas 150 se revisa rápido (Mac); para el render final, 800–1,100 (PC). Las flotantes de la cacería tienen tope de densidad para no tapar la mira, y el resto va a las paredes.
+- **Desenfoque por capas:** cada tarjeta cae en una de tres capas según su distancia (nítida, media y lejana, con fundido entre ellas). Cada capa lleva un solo `filter: blur`, y las lejanas usan una versión "lite" sin texto.
+- **`images`:** fotos de autos reutilizadas (30–40 bastan). Si faltan, se dibujan siluetas procedurales.
+- **`motionBlur`:** solo en el hook y en el arranque de la cacería.
+- Los tiempos de cada escena están en `src/components/tunnel/timeline.ts` (`MARKS` y la curva de velocidad `SPEED`).
+
 ## Crear un video nuevo en 5 pasos
 
 1. **Copia un brief**: `cp briefs/lumen.json briefs/mimarca.json` y cambia `brand`, `brandColor`, `accentColor`, `headline` y `concept`.
@@ -69,7 +87,7 @@ Para crear el flujo de otra app, copia `briefs/airbnb.json`, cambia el `ui` por 
 
 | Campo | Descripción |
 |---|---|
-| `template` | `HeroLogo` · `DataExplainer` · `MapPin` · `AppShowcase` · `AppFlow` |
+| `template` | `HeroLogo` · `DataExplainer` · `MapPin` · `AppShowcase` · `AppFlow` · `Tunnel` |
 | `brand`, `brandColor`, `accentColor` | El color de marca se usa en el logo; el de acento, en glow, fondo, rutas y barras |
 | `logo`, `wordmark` | Rutas relativas a `public/`. Si faltan, se dibuja el nombre en texto |
 | `headline` | Slogan de 2 líneas como máximo. Usa `\n` para forzar el salto |
